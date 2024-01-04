@@ -1,0 +1,33 @@
+ANALISIS DE DATASET 
+
+se pretende crear un espacio de trabajo donde se analizaran uno o varios datasets
+como se podria tener un esuqema de modelos en django que sigan los siguientes aspectos 
+
+# datos basicos del datase 
+    - dimenciones filas y columnas 
+    - tamaño en MB
+    - contar la cantidad de filas con columnas nulas
+    - contar la cantidad de filas duplicadas 
+
+# identificacion de varibles 
+    - obtencion de nombre 
+    - tipo de variable y obtencion de variables por tipo 
+        numericas ( int64 o float64)
+            . media 
+            . desviacion estandar
+            . minimo
+            . maximo 
+        cadena de string (object)
+            - cantidad de valores unicos 
+            - media de caracteres por valor 
+
+# observaciones y recomendaciones 
+    - si se tienen registros nulos se procede a aliminarlos 
+    - si los nombres de las variables tienen caracteres especiales como la (Ñ) se recomendara cambiar el nombre 
+    - para las variables de tipo object validar la cantidad de de valores unicos y la media de caracteres por valor y decidir si se debe dividir por tipos 
+        . si se clasifican los valores de una variable de tipo object por tipo obtener el porcentaje de valores por tipo 
+    - si se tiene registros duplicados se reomienda eliminarlos 
+    - identificar variables que sean posiblemente de tipo fecha o moneda y pasarlas a su correspomdiente tipo
+
+# limpieza por filtrado 
+    - identificar segun el contexto del dataset que registros tienene valores no coherentes y eliminarlos esto podria hgacerse por consultas o filtros 

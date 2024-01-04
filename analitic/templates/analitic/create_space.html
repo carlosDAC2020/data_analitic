@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+
+    <div class="container col-xl-10 col-xxl-8 px-4 py-5 h-100">
+
+        <form action="{% url 'analitic:cargar_csv' %}" method="post"  enctype="multipart/form-data" class="p-4 p-md-5 rounded-3  form_file">
+            <h1>Analitica</h1>
+            <p>Carga un archivo .csv con los datos a analizar </p>
+            {% csrf_token %}
+            <div class="form-floating mb-3 text-center">
+                <input type="file" name="archivo_csv" id="archivo_csv" required>
+                <i class="bi bi-filetype-csv custom-file-input"></i>
+                <p id="nombre-archivo" ></p> <!-- Aquí se mostrará el nombre del archivo -->
+                
+                <script>
+                    // Cuando se hace clic en el botón personalizado, activar el input de archivo
+                    document.querySelector('.custom-file-input').addEventListener('click', function() {
+                        document.querySelector('#archivo_csv').click();
+                    });
+            
+                    // Cuando se selecciona un archivo, mostrar su nombre
+                    document.querySelector('#archivo_csv').addEventListener('change', function() {
+                        const nombreArchivo = this.files[0].name;
+                        document.querySelector('#nombre-archivo').textContent = nombreArchivo;
+                    });
+                </script>
+            </div>
+            
+            
+              <button class="w-100 btn btn-lg btn-success" type="submit">Analizar</button>
+        </form>
+        
+
+        
+    </div>
+
+{% endblock %}

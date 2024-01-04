@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_content %}
+<main>
+    <div class="container py-4">
+     
+
+      <div class="row align-items-md-stretch py-5">
+        <div class="col-md-8 ">
+          <div class=" p-5  rounded-3 form_file h-100">
+            <h1 class="display-6 fw-bold">Inmuebles en Bogota </h1>
+            <p>Llevaré a cabo un análisis exploratorio de las características de los inmuebles en venta en Bogotá con el fin de predecir los precios basados en estas características. Esto implica recopilar y examinar datos relevantes como ubicación, tamaño, número de habitaciones, estado de conservación, entre otros, para identificar patrones y relaciones.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class=" p-4 rounded-3 form_file h-100">
+            <h3 >Recursos</h3>
+            <ul class="list-group mb-3">
+              <li class="list-group-item d-flex justify-content-between lh-sm text-bg-dark border-0 mb-3">
+                <div>
+                  <h6 class="my-0">Archivo.csv</h6>
+                  <small class="">3.45 MB</small>
+                </div>
+                <span class="text-body-secondary"><i class="bi bi-filetype-csv fs-3 text-success"></i></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm text-bg-dark border-0 mb-3">
+                <div>
+                  <h6 class="my-0">Archivo.csv</h6>
+                  <small class="">3.45 MB</small>
+                </div>
+                <span class="text-body-secondary"><i class="bi bi-filetype-csv fs-3 text-success"></i></span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between lh-sm text-bg-dark border-0 mb-3">
+                <div>
+                  <h6 class="my-0">Archivo.csv</h6>
+                  <small class="">3.45 MB</small>
+                </div>
+                <span class="text-body-secondary"><i class="bi bi-filetype-csv fs-3 text-success"></i></span>
+              </li>
+            </ul>
+            <div class="d-flex justify-content-center ">
+              <button type="button" class="btn btn-success rounded-circle"><i class="bi bi-file-earmark-plus"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="row align-items-md-stretch">
+        <div class="col-md-5">
+          <div class=" p-5  rounded-3 form_file">
+            <h2>Observaciones</h2>
+            
+            
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class=" p-5 rounded-3 form_file">
+            <div id="carouselExampleControlsNoTouching" class="carousel slide " data-bs-touch="false">
+              <div class="carousel-inner">
+                <div class="carousel-item active ">
+                  <h1 class="display-6 text-center">General</h1>
+                  <div class="row row-cols-lg-2 ">
+                    <div class="col">
+                      <h4>Dimenciones</h4>
+                      <h5>{{dimensions}}</h5>
+                    </div>
+                    <div class="col">
+                      <h4>Tamaño</h4>
+                      <h5>{{size}}</h5>
+                    </div>
+                    <div class="col">
+                      <h4>Nulos</h4>
+                      <h5>{{cant_null}}</h5>
+                    </div>
+                    <div class="col">
+                      <h4>Repetidos</h4>
+                      <h5>{{cant_repeated}}</h5>
+                    </div>
+                  </div>
+                </div>
+                {% for var,caracteristicas in variables.items %}
+                  <div class="carousel-item ">
+                    <h1 class="display-6 text-center">{{var}}</h1>
+                    <div class="row d-flex row-cols-lg-2">
+                      {% for c,v in caracteristicas.items %}
+                          <div class="col">
+                            <h4>{{c}}</h4>
+                            <h5>{{v}}</h5>
+                          </div>
+                      {% endfor %}
+                    </div>
+                    
+                      
+                  </div>
+                {% endfor %}
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControlsNoTouching" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+  
+      
+    </div>
+  </main>
+
+{% endblock %}
